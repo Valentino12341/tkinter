@@ -1,0 +1,100 @@
+from tkinter import*
+  
+# import calander
+import calendar
+
+
+
+
+#function for showing the calendar for the giver year 
+def showCal():
+    #create a gui window 
+    new_gui = Tk()
+
+    #set bg of the gui window 
+    new_gui.config(background="white")
+
+
+    #set the name of the ctkinter GUI window 
+    new_gui.title("CALENDAR")
+
+    #set the configuration/size of gui window 
+    new_gui.geometry("550x600")
+
+
+    #get method returns curent text as string 
+    fetch_year = int(year_field.get())
+
+    cal_content = calendar.calendar(fetch_year)
+
+
+    cal_year=Label(new_gui,text=cal_content,font="times new roman")
+
+    cal_year.grid(row=5,column=1,padx=20)
+
+    new_gui.mainloop()
+
+
+
+
+
+
+
+
+
+#DRIVER CODE 
+
+
+if __name__=="__main__":
+    #create a screen
+    gui = Tk()
+
+    #set the back ground collor of the window 
+    gui.config(background="blue")
+
+
+
+    #set the name of the gui window 
+    gui.title("CALENDER")
+
+    #set the configuration/size of the gui window
+
+    gui.geometry("700x600")
+
+
+
+    #create a CALENDER: label with specefied size and font 
+    cal = Label(gui,text="CALENDER",bg="red",
+                font=("times",28,"bold"))
+    
+    #place the label with Grid 
+    cal.grid(row=1,column=1)
+
+
+
+    #create a Enter your year label
+    year = Label(gui,text="ENTER YOUR YEAR:",bg="light green")
+    year.grid(row=2,column=1)
+
+
+    #create a box that takes input 
+    year_field = Entry(gui)
+    year_field.grid(row=3,column=1)
+
+
+    #create a show calendar button with a function 
+    show = Button(gui, text="show calendar",fg="black",
+                  bg="cyan",command=showCal)
+    show.grid(row=4,column=1)
+
+
+    #create a exit button that quits
+    Exit = Button(gui,text="Exit",fg="red",bg="white",command=exit)
+    Exit.grid(row=6,column=1)
+
+
+
+
+
+
+gui.mainloop()
